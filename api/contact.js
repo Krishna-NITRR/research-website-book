@@ -6,9 +6,8 @@
 
 const { createClient } = require('@supabase/supabase-js');
 
-// Supabase credentials — publishable key is safe for server-side API use
 const SUPABASE_URL = 'https://emsqddntqfglgwfmhres.supabase.co';
-const SUPABASE_KEY = 'sb_publishable_18lVPO-0i2ZwMuJZdvumtg_ehRIgJ46';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVtc3FkZG50cWZnbGd3Zm1ocmVzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMwNTgyMDQsImV4cCI6MjA4ODYzNDIwNH0.gOSVhUQyoyUeRaPMOBOF6ex5NAmggZUQGBNxzxXoFec';
 
 module.exports = async function handler(req, res) {
 
@@ -32,7 +31,7 @@ module.exports = async function handler(req, res) {
     return res.status(400).json({ error: 'Valid email is required.' });
   }
   if (!message || message.trim().length < 5) {
-    return res.status(400).json({ error: 'Message is too short.' });
+    return res.status(400).json({ error: 'Message must be at least 5 characters.' });
   }
 
   // Connect to Supabase
@@ -55,7 +54,7 @@ module.exports = async function handler(req, res) {
       return res.status(500).json({ error: 'Database error. Please try again.' });
     }
 
-    return res.status(200).json({ success: true, message: 'Message received!' });
+    return res.status(200).json({ success: true, message: 'Message sent!' });
 
   } catch (err) {
     console.error('Server error:', err.message);

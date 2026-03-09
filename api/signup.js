@@ -6,9 +6,8 @@
 
 const { createClient } = require('@supabase/supabase-js');
 
-// Supabase credentials — publishable key is safe for server-side API use
 const SUPABASE_URL = 'https://emsqddntqfglgwfmhres.supabase.co';
-const SUPABASE_KEY = 'sb_publishable_18lVPO-0i2ZwMuJZdvumtg_ehRIgJ46';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVtc3FkZG50cWZnbGd3Zm1ocmVzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMwNTgyMDQsImV4cCI6MjA4ODYzNDIwNH0.gOSVhUQyoyUeRaPMOBOF6ex5NAmggZUQGBNxzxXoFec';
 
 module.exports = async function handler(req, res) {
 
