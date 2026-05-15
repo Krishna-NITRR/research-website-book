@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Free Research Resource | Krishna Mahawar</title>
-  <meta name="description" content="Get the free research resource by Krishna Mahawar. Practical guide for students who want to start research early." />
+  <title>50+ Research Fellowships for Indian Students | Krishna Mahawar</title>
+  <meta name="description" content="Free list of 50+ research fellowships and funding programs for Indian students. INSPIRE, PMRF, DAAD, MEXT and 40 more with stipends, deadlines, and application roadmap." />
   <meta name="robots" content="noindex" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -31,7 +31,7 @@
       box-shadow: 0 4px 32px rgba(79,70,229,.08);
       padding: 48px 40px;
       width: 100%;
-      max-width: 480px;
+      max-width: 500px;
     }
 
     .badge {
@@ -64,7 +64,7 @@
 
     h1 {
       font-family: 'Poppins', sans-serif;
-      font-size: 1.7rem;
+      font-size: 1.65rem;
       font-weight: 800;
       line-height: 1.2;
       letter-spacing: -.5px;
@@ -82,21 +82,45 @@
       font-size: .92rem;
       color: #6b7280;
       line-height: 1.65;
-      margin-bottom: 28px;
+      margin-bottom: 22px;
+    }
+
+    /* Fellowship pills */
+    .pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 22px;
+    }
+    .pill {
+      background: rgba(79,70,229,.06);
+      border: 1px solid rgba(79,70,229,.14);
+      color: #4f46e5;
+      border-radius: 50px;
+      font-family: 'Poppins', sans-serif;
+      font-size: .72rem;
+      font-weight: 600;
+      padding: 4px 12px;
+    }
+    .pill-more {
+      background: #f3f2ef;
+      border: 1px solid #e5e4e0;
+      color: #6b7280;
     }
 
     .perks {
       display: flex;
       flex-direction: column;
       gap: 8px;
-      margin-bottom: 28px;
+      margin-bottom: 24px;
     }
     .perk {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 10px;
       font-size: .85rem;
       color: #374151;
+      line-height: 1.5;
     }
     .perk-dot {
       width: 18px; height: 18px;
@@ -106,19 +130,28 @@
       flex-shrink: 0;
       color: #fff;
       font-size: .6rem;
+      margin-top: 1px;
     }
 
     .divider {
       height: 1px;
       background: rgba(79,70,229,.1);
-      margin-bottom: 24px;
+      margin-bottom: 22px;
+    }
+
+    .form-label-top {
+      font-family: 'Poppins', sans-serif;
+      font-size: .82rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 14px;
     }
 
     .field {
       display: flex;
       flex-direction: column;
       gap: 6px;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
     label {
       font-family: 'Poppins', sans-serif;
@@ -174,6 +207,19 @@
       font-family: 'Poppins', sans-serif;
     }
 
+    .error-msg {
+      display: none;
+      background: #fef2f2;
+      border: 1px solid #fca5a5;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: .82rem;
+      color: #dc2626;
+      margin-top: 10px;
+      text-align: center;
+    }
+    .error-msg.show { display: block; }
+
     /* Success state */
     .success {
       display: none;
@@ -195,22 +241,8 @@
       line-height: 1.6;
     }
 
-    /* Error message */
-    .error-msg {
-      display: none;
-      background: #fef2f2;
-      border: 1px solid #fca5a5;
-      border-radius: 8px;
-      padding: 10px 14px;
-      font-size: .82rem;
-      color: #dc2626;
-      margin-top: 10px;
-      text-align: center;
-    }
-    .error-msg.show { display: block; }
-
     .author-note {
-      margin-top: 28px;
+      margin-top: 24px;
       display: flex;
       align-items: center;
       gap: 10px;
@@ -229,8 +261,8 @@
     .author-text strong { color: #6b7280; }
 
     @media (max-width: 520px) {
-      .card { padding: 32px 22px; }
-      h1 { font-size: 1.45rem; }
+      .card { padding: 32px 20px; }
+      h1 { font-size: 1.4rem; }
     }
   </style>
 </head>
@@ -240,17 +272,32 @@
 
   <!-- Form state -->
   <div id="formWrap">
-    <div class="badge">Free Resource</div>
-    <h1>Start Your Research<br>Journey <span>Earlier.</span></h1>
-    <p class="subtitle">Enter your details below and get instant access to the research guide, completely free.</p>
+    <div class="badge">&#127775; Free Resource</div>
+
+    <h1>50+ Fellowships.<br>Most seats go <span>unfilled.</span></h1>
+
+    <p class="subtitle">No one tells Indian students that free money exists for research. I spent 3 weeks mapping it. This list is free. Takes you 3 minutes to get.</p>
+
+    <div class="pills">
+      <span class="pill">INSPIRE</span>
+      <span class="pill">PMRF</span>
+      <span class="pill">DAAD</span>
+      <span class="pill">MEXT</span>
+      <span class="pill pill-more">+40 more</span>
+    </div>
 
     <div class="perks">
-      <div class="perk"><div class="perk-dot">&#10003;</div>How to cold email professors (templates included)</div>
-      <div class="perk"><div class="perk-dot">&#10003;</div>How to find and apply for research internships</div>
-      <div class="perk"><div class="perk-dot">&#10003;</div>Reading academic papers in under 30 minutes</div>
+      <div class="perk"><div class="perk-dot">&#10003;</div>Eligibility for each: UG, PG, or both</div>
+      <div class="perk"><div class="perk-dot">&#10003;</div>Exact stipend or grant amount</div>
+      <div class="perk"><div class="perk-dot">&#10003;</div>Deadline window so you never miss one</div>
+      <div class="perk"><div class="perk-dot">&#10003;</div>The mistake that kills most applications</div>
+      <div class="perk"><div class="perk-dot">&#10003;</div>Direct link to apply for each fellowship</div>
+      <div class="perk"><div class="perk-dot">&#10003;</div>International + Domestic programs both included</div>
     </div>
 
     <div class="divider"></div>
+
+    <div class="form-label-top">Get the free list instantly &#8594;</div>
 
     <form id="leadForm" onsubmit="handleSubmit(event)" novalidate>
       <div class="field">
@@ -261,10 +308,10 @@
         <label for="email">Email Address <span style="color:#4f46e5">*</span></label>
         <input type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="email" />
       </div>
-      <button type="submit" class="btn" id="submitBtn">Get the Free Resource &#8594;</button>
+      <button type="submit" class="btn" id="submitBtn">Send Me the Fellowship List &#8594;</button>
       <div class="error-msg" id="errorMsg">Something went wrong. Please try again.</div>
     </form>
-    <p class="note">&#128274; No spam. Unsubscribe anytime.</p>
+    <p class="note">&#128274; No spam. Just the list. Unsubscribe anytime.</p>
 
     <div class="author-note">
       <div class="author-av">KM</div>
@@ -272,18 +319,18 @@
     </div>
   </div>
 
-  <!-- Success state (shown after submit) -->
+  <!-- Success state -->
   <div class="success" id="successWrap">
     <div class="success-icon">&#127881;</div>
     <h2>You're in! Redirecting...</h2>
-    <p>Taking you to the resource now. If you are not redirected automatically, <a href="#" id="manualLink" style="color:#4f46e5;font-weight:600">click here</a>.</p>
+    <p>Taking you to the fellowship list now. If you are not redirected automatically, <a href="#" id="manualLink" style="color:#4f46e5;font-weight:600">click here</a>.</p>
   </div>
 
 </div>
 
 <script>
-  // ── Replace this with your actual Google Drive link ──
-  const RESOURCE_URL = 'https://drive.google.com/drive/folders/1JSCq_yyxIbg-_QiptAuyXZUG7gWgOorU?usp=sharing';
+  // Replace with your actual Google Drive link
+  const RESOURCE_URL = 'https://drive.google.com/YOUR_LINK_HERE';
 
   const SUPABASE_URL = 'https://emsqddntqfglgwfmhres.supabase.co';
   const SUPABASE_KEY = 'sb_publishable_18lVPO-0i2ZwMuJZdvumtg_ehRIgJ46';
@@ -323,7 +370,6 @@
         })
       });
 
-      // 201 = created, 409 = duplicate email (still redirect)
       if (res.ok || res.status === 409) {
         document.getElementById('formWrap').style.display = 'none';
         document.getElementById('successWrap').classList.add('show');
@@ -336,7 +382,7 @@
       errorMsg.textContent = 'Something went wrong. Please try again.';
       errorMsg.classList.add('show');
       btn.disabled    = false;
-      btn.textContent = 'Get the Free Resource →';
+      btn.textContent = 'Send Me the Fellowship List →';
     }
   }
 </script>
