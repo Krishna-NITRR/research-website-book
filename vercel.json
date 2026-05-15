@@ -3,6 +3,7 @@
   "rewrites": [
     { "source": "/api/signup",  "destination": "/api/signup.js"  },
     { "source": "/api/contact", "destination": "/api/contact.js" },
-    { "source": "/(.*)",        "destination": "/index.html"     }
+    { "source": "/research-1",  "destination": "/research-1.html" },
+    { "source": "/(.*)",        "destination": "/index.html"      }
   ]
 }

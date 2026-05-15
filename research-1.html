@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free Research Resource | Krishna Mahawar</title>
+  <meta name="description" content="Get the free research resource by Krishna Mahawar. Practical guide for students who want to start research early." />
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f8f7f4;
+      color: #111827;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 16px;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid rgba(79,70,229,.12);
+      border-radius: 20px;
+      box-shadow: 0 4px 32px rgba(79,70,229,.08);
+      padding: 48px 40px;
+      width: 100%;
+      max-width: 480px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(79,70,229,.07);
+      border: 1px solid rgba(79,70,229,.15);
+      color: #4f46e5;
+      border-radius: 50px;
+      font-family: 'Poppins', sans-serif;
+      font-size: .72rem;
+      font-weight: 700;
+      padding: 5px 13px;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      margin-bottom: 20px;
+    }
+    .badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: #4f46e5;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity:1; transform:scale(1); }
+      50%      { opacity:.4; transform:scale(1.5); }
+    }
+
+    h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.7rem;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -.5px;
+      color: #111827;
+      margin-bottom: 10px;
+    }
+    h1 span {
+      background: linear-gradient(135deg, #4f46e5, #2563eb);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .subtitle {
+      font-size: .92rem;
+      color: #6b7280;
+      line-height: 1.65;
+      margin-bottom: 28px;
+    }
+
+    .perks {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+    .perk {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: .85rem;
+      color: #374151;
+    }
+    .perk-dot {
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #4f46e5, #2563eb);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      color: #fff;
+      font-size: .6rem;
+    }
+
+    .divider {
+      height: 1px;
+      background: rgba(79,70,229,.1);
+      margin-bottom: 24px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+    label {
+      font-family: 'Poppins', sans-serif;
+      font-size: .77rem;
+      font-weight: 600;
+      color: #6b7280;
+    }
+    input {
+      background: #f3f2ef;
+      border: 1.5px solid rgba(79,70,229,.1);
+      border-radius: 10px;
+      padding: 13px 15px;
+      font-family: 'Inter', sans-serif;
+      font-size: .92rem;
+      color: #111827;
+      outline: none;
+      width: 100%;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    input::placeholder { color: #9ca3af; }
+    input:focus {
+      border-color: #4f46e5;
+      box-shadow: 0 0 0 3px rgba(79,70,229,.1);
+    }
+
+    .btn {
+      width: 100%;
+      margin-top: 6px;
+      background: linear-gradient(135deg, #4f46e5, #2563eb);
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      padding: 15px;
+      font-family: 'Poppins', sans-serif;
+      font-size: .95rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(79,70,229,.28);
+      transition: opacity .2s, transform .2s, box-shadow .2s;
+    }
+    .btn:hover:not(:disabled) {
+      opacity: .92;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(79,70,229,.38);
+    }
+    .btn:disabled { opacity: .7; cursor: not-allowed; }
+
+    .note {
+      text-align: center;
+      margin-top: 12px;
+      font-size: .75rem;
+      color: #9ca3af;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* Success state */
+    .success {
+      display: none;
+      text-align: center;
+      padding: 8px 0;
+    }
+    .success.show { display: block; }
+    .success-icon { font-size: 2.8rem; margin-bottom: 12px; }
+    .success h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #111827;
+      margin-bottom: 8px;
+    }
+    .success p {
+      font-size: .88rem;
+      color: #6b7280;
+      line-height: 1.6;
+    }
+
+    /* Error message */
+    .error-msg {
+      display: none;
+      background: #fef2f2;
+      border: 1px solid #fca5a5;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: .82rem;
+      color: #dc2626;
+      margin-top: 10px;
+      text-align: center;
+    }
+    .error-msg.show { display: block; }
+
+    .author-note {
+      margin-top: 28px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      justify-content: center;
+    }
+    .author-av {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #4f46e5, #2563eb);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800; font-size: .7rem;
+      color: #fff; flex-shrink: 0;
+    }
+    .author-text { font-size: .78rem; color: #9ca3af; }
+    .author-text strong { color: #6b7280; }
+
+    @media (max-width: 520px) {
+      .card { padding: 32px 22px; }
+      h1 { font-size: 1.45rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="card">
+
+  <!-- Form state -->
+  <div id="formWrap">
+    <div class="badge">Free Resource</div>
+    <h1>Start Your Research<br>Journey <span>Earlier.</span></h1>
+    <p class="subtitle">Enter your details below and get instant access to the research guide, completely free.</p>
+
+    <div class="perks">
+      <div class="perk"><div class="perk-dot">&#10003;</div>How to cold email professors (templates included)</div>
+      <div class="perk"><div class="perk-dot">&#10003;</div>How to find and apply for research internships</div>
+      <div class="perk"><div class="perk-dot">&#10003;</div>Reading academic papers in under 30 minutes</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <form id="leadForm" onsubmit="handleSubmit(event)" novalidate>
+      <div class="field">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" placeholder="Krishna Mahawar" autocomplete="name" />
+      </div>
+      <div class="field">
+        <label for="email">Email Address <span style="color:#4f46e5">*</span></label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="email" />
+      </div>
+      <button type="submit" class="btn" id="submitBtn">Get the Free Resource &#8594;</button>
+      <div class="error-msg" id="errorMsg">Something went wrong. Please try again.</div>
+    </form>
+    <p class="note">&#128274; No spam. Unsubscribe anytime.</p>
+
+    <div class="author-note">
+      <div class="author-av">KM</div>
+      <div class="author-text">By <strong>Krishna Mahawar</strong> &middot; NIT Raipur &middot; CGPA 9.09</div>
+    </div>
+  </div>
+
+  <!-- Success state (shown after submit) -->
+  <div class="success" id="successWrap">
+    <div class="success-icon">&#127881;</div>
+    <h2>You're in! Redirecting...</h2>
+    <p>Taking you to the resource now. If you are not redirected automatically, <a href="#" id="manualLink" style="color:#4f46e5;font-weight:600">click here</a>.</p>
+  </div>
+
+</div>
+
+<script>
+  // ── Replace this with your actual Google Drive link ──
+  const RESOURCE_URL = 'https://drive.google.com/drive/folders/1JSCq_yyxIbg-_QiptAuyXZUG7gWgOorU?usp=sharing';
+
+  const SUPABASE_URL = 'https://emsqddntqfglgwfmhres.supabase.co';
+  const SUPABASE_KEY = 'sb_publishable_18lVPO-0i2ZwMuJZdvumtg_ehRIgJ46';
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const btn      = document.getElementById('submitBtn');
+    const errorMsg = document.getElementById('errorMsg');
+    const name     = document.getElementById('name').value.trim();
+    const email    = document.getElementById('email').value.trim().toLowerCase();
+
+    errorMsg.classList.remove('show');
+
+    if (!email) {
+      errorMsg.textContent = 'Please enter your email address.';
+      errorMsg.classList.add('show');
+      return;
+    }
+
+    btn.disabled    = true;
+    btn.textContent = 'Saving...';
+
+    try {
+      const res = await fetch(`${SUPABASE_URL}/rest/v1/leads`, {
+        method:  'POST',
+        headers: {
+          'Content-Type':  'application/json',
+          'apikey':        SUPABASE_KEY,
+          'Authorization': `Bearer ${SUPABASE_KEY}`,
+          'Prefer':        'return=minimal'
+        },
+        body: JSON.stringify({
+          name:       name || null,
+          email:      email,
+          resource:   'research-1',
+          created_at: new Date().toISOString()
+        })
+      });
+
+      // 201 = created, 409 = duplicate email (still redirect)
+      if (res.ok || res.status === 409) {
+        document.getElementById('formWrap').style.display = 'none';
+        document.getElementById('successWrap').classList.add('show');
+        document.getElementById('manualLink').href = RESOURCE_URL;
+        setTimeout(() => { window.location.href = RESOURCE_URL; }, 1500);
+      } else {
+        throw new Error(`Status ${res.status}`);
+      }
+    } catch (err) {
+      errorMsg.textContent = 'Something went wrong. Please try again.';
+      errorMsg.classList.add('show');
+      btn.disabled    = false;
+      btn.textContent = 'Get the Free Resource →';
+    }
+  }
+</script>
+
+</body>
+</html>
