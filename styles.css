@@ -796,37 +796,6 @@ footer {
 /* ══════════════════════════════════════════
    DARK MODE TOGGLE + DARK THEME
 ══════════════════════════════════════════ */
-.toggle {
-  position: relative;
-  width: 48px; height: 25px;
-  background: var(--div);
-  border-radius: 50px;
-  border: none;
-  padding: 2px;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  transition: background .25s;
-  flex-shrink: 0;
-}
-.toggle::after {
-  content: '';
-  width: 19px; height: 19px;
-  background: var(--purple);
-  border-radius: 50%;
-  transition: transform .3s cubic-bezier(.68,-.55,.27,1.55);
-}
-[data-theme="dark"] .toggle::after { transform: translateX(23px); }
-.toggle-icons {
-  position: absolute;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding: 0 5px;
-  pointer-events: none;
-  font-size: 9px;
-}
-
 [data-theme="dark"] {
   --bg: #0f0f14;
   --bg2: #16161e;
@@ -844,11 +813,10 @@ footer {
 [data-theme="dark"] .cred-strip { background: #0a0a0f; }
 [data-theme="dark"] footer { background: #0a0a0f; }
 
-/* ── Toggle redesign ── */
 .toggle {
   position: relative;
   width: 52px; height: 28px;
-  background: #e4e4e4;
+  background: #e0e0e0;
   border-radius: 50px;
   border: none;
   padding: 3px;
@@ -857,18 +825,15 @@ footer {
   cursor: pointer;
   transition: background .3s;
   flex-shrink: 0;
-  overflow: hidden;
 }
 [data-theme="dark"] .toggle { background: #3a3760; }
 .toggle::after {
   content: '';
   width: 22px; height: 22px;
-  background: #fff;
+  background: #ffffff;
   border-radius: 50%;
-  box-shadow: 0 1px 4px rgba(0,0,0,.2);
+  box-shadow: 0 1px 4px rgba(0,0,0,.25);
   transition: transform .35s cubic-bezier(.68,-.55,.27,1.55), background .3s;
-  position: relative;
-  z-index: 1;
   flex-shrink: 0;
 }
 [data-theme="dark"] .toggle::after {
@@ -883,8 +848,7 @@ footer {
   padding: 0 6px;
   pointer-events: none;
   font-size: 10px;
-  line-height: 1;
-  z-index: 0;
+  line-height: 28px;
 }
 .toggle-icons span:first-child { color: #f59e0b; }
 .toggle-icons span:last-child  { color: #a5b4fc; }
