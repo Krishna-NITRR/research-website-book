@@ -4,11 +4,16 @@
 
 /* ── Theme toggle ── */
 const H = document.documentElement;
-H.setAttribute('data-theme', localStorage.getItem('km-theme') || 'light');
-document.getElementById('themeToggle')?.addEventListener('click', () => {
-  const next = H.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-  H.setAttribute('data-theme', next);
-  localStorage.setItem('km-theme', next);
+// Init already set in <head>, just wire the button
+document.addEventListener('DOMContentLoaded', () => {
+  const toggleBtn = document.getElementById('themeToggle');
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', () => {
+      const next = H.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      H.setAttribute('data-theme', next);
+      localStorage.setItem('km-theme', next);
+    });
+  }
 });
 
 /* ── Nav scroll shadow ── */
