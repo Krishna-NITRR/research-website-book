@@ -2,6 +2,20 @@
    KRISHNA MAHAWAR — main.js
 ═══════════════════════════════════════════ */
 
+/* ── Theme toggle ── */
+const H = document.documentElement;
+// Init already set in <head>, just wire the button
+document.addEventListener('DOMContentLoaded', () => {
+  const toggleBtn = document.getElementById('themeToggle');
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', () => {
+      const next = H.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      H.setAttribute('data-theme', next);
+      localStorage.setItem('km-theme', next);
+    });
+  }
+});
+
 /* ── Nav scroll shadow ── */
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
