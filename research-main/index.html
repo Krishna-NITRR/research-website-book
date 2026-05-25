@@ -267,18 +267,18 @@ footer{background:#fff;border-top:1px solid #EBEBEB;padding:28px 20px;text-align
 
     <!-- QR + UPI -->
     <div class="qr-block">
-      <img src="/research-6/qr.jpeg" alt="UPI QR Code - Krishna Mahawar" style="width:140px;height:140px;object-fit:cover;border-radius:6px;border:1px solid #E8E8E8;flex-shrink:0"/>
+      <img src="qr.jpeg" alt="UPI QR Code - Krishna Mahawar" style="width:140px;height:140px;object-fit:cover;border-radius:6px;border:1px solid #E8E8E8;flex-shrink:0"/>
       <div class="qr-right">
         <div class="upi-label">UPI ID</div>
         <div class="upi-id-row">
           <span class="upi-id-text" id="upiIdText">krishnazindahai@okhdfcbank</span>
           <button class="btn-copy" id="copyBtn" onclick="copyUPI()">Copy</button>
         </div>
-        <a href="upi://pay?pa=krishnazindahai@okhdfcbank&pn=KrishnaMahawar&am=149&cu=INR" class="btn-upi">
+        <button class="btn-upi" onclick="openUPI()">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v20M2 12h20"/></svg>
           Pay &#8377;149 via UPI App
-        </a>
-        <div class="upi-note">Opens your UPI app directly &middot; mobile only</div>
+        </button>
+        <div class="upi-note">Opens your UPI app directly &middot; works on mobile</div>
       </div>
     </div>
 
@@ -304,6 +304,17 @@ footer{background:#fff;border-top:1px solid #EBEBEB;padding:28px 20px;text-align
 </footer>
 
 <script>
+function openUPI() {
+  var upiLink = 'upi://pay?pa=krishnazindahai@okhdfcbank&pn=KrishnaMahawar&am=149&cu=INR';
+  window.location.href = upiLink;
+  setTimeout(function() {
+    var fallback = confirm('UPI app not opening?\n\nCopy the UPI ID manually:\nkrishnazindahai@okhdfcbank\n\nClick OK to copy.');
+    if (fallback) {
+      navigator.clipboard && navigator.clipboard.writeText('krishnazindahai@okhdfcbank');
+    }
+  }, 1500);
+}
+
 function copyUPI() {
   var upi = document.getElementById('upiIdText').textContent;
   var btn = document.getElementById('copyBtn');
@@ -311,10 +322,7 @@ function copyUPI() {
     navigator.clipboard.writeText(upi).then(function() {
       btn.textContent = 'Copied!';
       btn.classList.add('copied');
-      setTimeout(function() {
-        btn.textContent = 'Copy';
-        btn.classList.remove('copied');
-      }, 2000);
+      setTimeout(function() { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
     });
   } else {
     var ta = document.createElement('textarea');
@@ -325,10 +333,7 @@ function copyUPI() {
     document.body.removeChild(ta);
     btn.textContent = 'Copied!';
     btn.classList.add('copied');
-    setTimeout(function() {
-      btn.textContent = 'Copy';
-      btn.classList.remove('copied');
-    }, 2000);
+    setTimeout(function() { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
   }
 }
 </script>
