@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Placement Map | Krishna Mahawar</title>
+<meta name="robots" content="noindex"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Inter',sans-serif;background:#F8F8F8;color:#1A1A1A;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+
+/* ── LAYOUT ── */
+.wrap{max-width:680px;margin:0 auto;padding:0 20px}
+.sec{padding:64px 20px}
+.divider{height:1px;background:#E8E8E8;max-width:680px;margin:0 auto}
+
+/* ── NAV ── */
+nav{background:#fff;border-bottom:1px solid #EBEBEB;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:99}
+.nav-brand{font-size:.82rem;font-weight:700;color:#1A1A1A;letter-spacing:.2px}
+.nav-brand span{color:#017AFF}
+.nav-price{font-size:.82rem;font-weight:700;color:#017AFF;background:#EEF5FF;padding:5px 12px;border-radius:4px}
+
+/* ── HERO ── */
+#hero{padding:64px 20px 56px;background:#fff;border-bottom:1px solid #EBEBEB}
+.hero-inner{max-width:680px;margin:0 auto}
+.hero-tag{display:inline-block;font-size:.68rem;font-weight:700;color:#017AFF;text-transform:uppercase;letter-spacing:2px;margin-bottom:16px;background:#EEF5FF;padding:4px 10px;border-radius:3px}
+h1{font-size:clamp(1.9rem,4vw,2.6rem);font-weight:800;letter-spacing:-1px;line-height:1.1;color:#1A1A1A;margin-bottom:12px}
+.hero-sub{font-size:1.05rem;color:#4B4B4B;line-height:1.65;margin-bottom:24px;max-width:520px}
+.hero-desc{font-size:.9rem;color:#6B6B6B;line-height:1.7;margin-bottom:32px;max-width:500px}
+.price-row{display:flex;align-items:baseline;gap:10px;margin-bottom:28px}
+.price{font-size:2.2rem;font-weight:900;color:#1A1A1A;letter-spacing:-1px}
+.price-note{font-size:.82rem;color:#6B6B6B}
+.btn-main{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#017AFF;color:#fff;font-size:.95rem;font-weight:700;padding:15px 32px;border-radius:6px;border:none;cursor:pointer;transition:background .2s,transform .15s;letter-spacing:.2px;width:100%;max-width:320px}
+.btn-main:hover{background:#0066DD;transform:translateY(-1px)}
+.trust-line{margin-top:14px;font-size:.78rem;color:#999;display:flex;align-items:center;gap:6px}
+.trust-line::before{content:'';width:16px;height:1px;background:#ccc}
+
+/* ── WHAT YOU GET ── */
+#get{background:#F8F8F8}
+.sec-label{font-size:.68rem;font-weight:700;color:#017AFF;text-transform:uppercase;letter-spacing:2px;margin-bottom:12px}
+.sec-title{font-size:1.45rem;font-weight:800;letter-spacing:-.4px;color:#1A1A1A;margin-bottom:24px}
+.get-list{display:flex;flex-direction:column;gap:0}
+.get-item{display:flex;align-items:flex-start;gap:14px;padding:16px 0;border-bottom:1px solid #E8E8E8}
+.get-item:first-child{border-top:1px solid #E8E8E8}
+.get-icon{width:32px;height:32px;border-radius:4px;background:#EEF5FF;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.get-icon svg{width:15px;height:15px}
+.get-title{font-size:.9rem;font-weight:700;color:#1A1A1A;margin-bottom:3px}
+.get-desc{font-size:.8rem;color:#6B6B6B;line-height:1.55}
+.get-badge{display:inline-block;font-size:.62rem;font-weight:700;color:#FF6800;background:#FFF3EC;border:1px solid #FFD4B8;padding:2px 7px;border-radius:3px;margin-left:6px;text-transform:uppercase;letter-spacing:.5px;vertical-align:middle}
+.tagline{margin-top:28px;padding:16px 20px;background:#fff;border:1px solid #E8E8E8;border-left:3px solid #017AFF;border-radius:0 4px 4px 0;font-size:.88rem;font-weight:600;color:#1A1A1A}
+
+/* ── TRUST STRIP ── */
+#trust{background:#fff;padding:40px 20px}
+.trust-grid{max-width:680px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.trust-item{text-align:center;padding:20px 14px;border:1px solid #EBEBEB;border-radius:6px}
+.trust-item-icon{font-size:1.3rem;margin-bottom:8px}
+.trust-item-title{font-size:.82rem;font-weight:700;color:#1A1A1A;margin-bottom:4px}
+.trust-item-desc{font-size:.75rem;color:#6B6B6B;line-height:1.5}
+
+/* ── PAYMENT ── */
+#payment{background:#F8F8F8}
+.payment-card{background:#fff;border:1px solid #E8E8E8;border-radius:8px;padding:32px 28px;max-width:680px;margin:0 auto}
+.payment-title{font-size:1.25rem;font-weight:800;color:#1A1A1A;margin-bottom:6px;letter-spacing:-.3px}
+.payment-sub{font-size:.85rem;color:#6B6B6B;margin-bottom:28px}
+.steps{display:flex;flex-direction:column;gap:20px;margin-bottom:28px}
+.step{display:flex;gap:14px;align-items:flex-start}
+.step-num{width:28px;height:28px;border-radius:50%;background:#017AFF;color:#fff;font-size:.75rem;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.step-body{}
+.step-title{font-size:.88rem;font-weight:700;color:#1A1A1A;margin-bottom:4px}
+.step-desc{font-size:.8rem;color:#6B6B6B;line-height:1.55}
+
+.divider-pay{height:1px;background:#F0F0F0;margin:24px 0}
+
+/* QR */
+.qr-block{display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap}
+.qr-placeholder{width:140px;height:140px;border:2px dashed #D0D0D0;border-radius:6px;display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;background:#FAFAFA}
+.qr-placeholder svg{width:36px;height:36px;color:#CCC;margin-bottom:6px}
+.qr-placeholder span{font-size:.68rem;color:#BBB;text-align:center;line-height:1.4}
+.qr-right{flex:1;min-width:200px}
+.upi-label{font-size:.68rem;font-weight:700;color:#999;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:6px}
+.upi-id-row{display:flex;align-items:center;gap:8px;background:#F4F4F4;border:1px solid #E8E8E8;border-radius:4px;padding:10px 12px;margin-bottom:12px}
+.upi-id-text{font-size:.9rem;font-weight:700;color:#1A1A1A;flex:1;font-family:'SF Mono','Fira Code',monospace}
+.btn-copy{background:#017AFF;color:#fff;border:none;font-size:.72rem;font-weight:700;padding:6px 12px;border-radius:3px;cursor:pointer;transition:background .15s;white-space:nowrap;letter-spacing:.3px}
+.btn-copy:hover{background:#0066DD}
+.btn-copy.copied{background:#22C55E}
+.btn-upi{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;background:#FF6800;color:#fff;font-size:.85rem;font-weight:700;padding:12px;border-radius:5px;border:none;cursor:pointer;transition:background .15s;letter-spacing:.2px;margin-top:4px}
+.btn-upi:hover{background:#E55A00}
+.upi-note{font-size:.72rem;color:#999;text-align:center;margin-top:6px}
+
+/* SUBMIT */
+.submit-block{margin-top:24px;padding-top:24px;border-top:1px solid #F0F0F0}
+.submit-title{font-size:.88rem;font-weight:700;color:#1A1A1A;margin-bottom:6px}
+.submit-desc{font-size:.8rem;color:#6B6B6B;margin-bottom:14px;line-height:1.55}
+.btn-submit{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;background:#1A1A1A;color:#fff;font-size:.88rem;font-weight:700;padding:14px;border-radius:5px;border:none;cursor:pointer;transition:background .15s;letter-spacing:.2px}
+.btn-submit:hover{background:#333}
+.submit-note{font-size:.75rem;color:#999;text-align:center;margin-top:10px;display:flex;align-items:center;justify-content:center;gap:5px}
+.submit-note::before{content:'';width:5px;height:5px;border-radius:50%;background:#22C55E;flex-shrink:0}
+
+/* ── FOOTER ── */
+footer{background:#fff;border-top:1px solid #EBEBEB;padding:28px 20px;text-align:center}
+.footer-inner{max-width:680px;margin:0 auto}
+.footer-brand{font-size:.82rem;font-weight:700;color:#1A1A1A;margin-bottom:4px}
+.footer-brand span{color:#017AFF}
+.footer-copy{font-size:.72rem;color:#BBB}
+
+/* ── RESPONSIVE ── */
+@media(max-width:520px){
+  .trust-grid{grid-template-columns:1fr}
+  .qr-block{flex-direction:column}
+  .qr-block img{width:100%;height:auto}
+  .payment-card{padding:24px 18px}
+  h1{font-size:1.75rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">Krishna Mahawar<span>.</span></div>
+  <div class="nav-price">&#8377;149 one-time</div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">Placement Prep</div>
+    <h1>Placement Map</h1>
+    <p class="hero-sub">A clear preparation system for Finance, IT, Core, and Research roles.</p>
+    <p class="hero-desc">Everything structured in one place. No scattered resources. No guesswork on what to do next. One system, four tracks.</p>
+    <div class="price-row">
+      <span class="price">&#8377;149</span>
+      <span class="price-note">one-time &middot; instant access</span>
+    </div>
+    <button class="btn-main" onclick="document.getElementById('payment').scrollIntoView({behavior:'smooth'})">
+      Get Access &nbsp;&#8377;149
+    </button>
+    <div class="trust-line">Built by Krishna Mahawar &middot; NIT Raipur</div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WHAT YOU GET -->
+<section class="sec" id="get">
+  <div class="wrap">
+    <div class="sec-label">What's Inside</div>
+    <div class="sec-title">Everything in one system.</div>
+    <div class="get-list">
+      <div class="get-item">
+        <div class="get-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#017AFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <div>
+          <div class="get-title">Finance + Consulting Roadmap</div>
+          <div class="get-desc">Clear path from zero to placement-ready. What to study, in what order, and what actually gets you shortlisted.</div>
+        </div>
+      </div>
+      <div class="get-item">
+        <div class="get-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#017AFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <div>
+          <div class="get-title">IT / CS Roadmap</div>
+          <div class="get-desc">What actually matters for tech placements. DSA, system design, internships, and the right preparation sequence.</div>
+        </div>
+      </div>
+      <div class="get-item">
+        <div class="get-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#017AFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <div>
+          <div class="get-title">Core Engineering Roadmap</div>
+          <div class="get-desc">Focused, updated prep for core roles. Cuts out what does not matter and builds what companies actually test.</div>
+        </div>
+      </div>
+      <div class="get-item">
+        <div class="get-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#017AFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        </div>
+        <div>
+          <div class="get-title">Research Track Roadmap</div>
+          <div class="get-desc">For students targeting research internships, fellowships, and academic careers. System for building a research profile early.</div>
+        </div>
+      </div>
+      <div class="get-item">
+        <div class="get-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#017AFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        </div>
+        <div>
+          <div class="get-title">All Previously Shared Resources</div>
+          <div class="get-desc">Fellowship lists, cold email frameworks, professor databases, project ideas. Structured and organised in one place.</div>
+        </div>
+      </div>
+      <div class="get-item">
+        <div class="get-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#FF6800" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div>
+          <div class="get-title">2 Exclusive Resources <span class="get-badge">Surprise</span></div>
+          <div class="get-desc">Two additional resources not shared publicly. You will find out when you get access.</div>
+        </div>
+      </div>
+    </div>
+    <div class="tagline">Not another list. A structured system.</div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- TRUST STRIP -->
+<section id="trust">
+  <div class="trust-grid">
+    <div class="trust-item">
+      <div class="trust-item-icon">&#127919;</div>
+      <div class="trust-item-title">Structured for clarity</div>
+      <div class="trust-item-desc">Not overwhelm. Each track has a clear path.</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-item-icon">&#9989;</div>
+      <div class="trust-item-title">What actually works</div>
+      <div class="trust-item-desc">Focused on placement outcomes, not generic prep.</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-item-icon">&#128257;</div>
+      <div class="trust-item-title">Regular updates</div>
+      <div class="trust-item-desc">Access includes all future updates at no extra cost.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PAYMENT -->
+<section class="sec" id="payment">
+  <div class="payment-card">
+    <div class="payment-title">Complete Your Payment</div>
+    <div class="payment-sub">3 steps &middot; takes under 2 minutes</div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">Pay &#8377;149 via UPI</div>
+          <div class="step-desc">Use any UPI app. Scan the QR or copy the UPI ID below.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">Take a screenshot</div>
+          <div class="step-desc">Screenshot the payment success screen showing the transaction ID.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">Submit proof below</div>
+          <div class="step-desc">Fill the short form and upload your screenshot. Access within 1 to 2 hours.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider-pay"></div>
+
+    <!-- QR + UPI -->
+    <div class="qr-block">
+      <img src="/research-6/qr.jpeg" alt="UPI QR Code - Krishna Mahawar" style="width:140px;height:140px;object-fit:cover;border-radius:6px;border:1px solid #E8E8E8;flex-shrink:0"/>
+      <div class="qr-right">
+        <div class="upi-label">UPI ID</div>
+        <div class="upi-id-row">
+          <span class="upi-id-text" id="upiIdText">krishnazindahai@okhdfcbank</span>
+          <button class="btn-copy" id="copyBtn" onclick="copyUPI()">Copy</button>
+        </div>
+        <a href="upi://pay?pa=krishnazindahai@okhdfcbank&pn=KrishnaMahawar&am=149&cu=INR" class="btn-upi">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v20M2 12h20"/></svg>
+          Pay &#8377;149 via UPI App
+        </a>
+        <div class="upi-note">Opens your UPI app directly &middot; mobile only</div>
+      </div>
+    </div>
+
+    <!-- SUBMIT -->
+    <div class="submit-block">
+      <div class="submit-title">Done paying? Submit your proof.</div>
+      <div class="submit-desc">Click below to open the submission form. Upload your payment screenshot and enter your email. Access will be shared on the same email.</div>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSd8AGqi9K2SrvQ5PyFf1YKd0QQdTWR9jyh1F-l8eZ2g3fxg7A/viewform" target="_blank" rel="noopener noreferrer" class="btn-submit">
+        Submit Payment Proof &nbsp;&rarr;
+      </a>
+      <div class="submit-note">Access shared within 1 to 2 hours after verification</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">Krishna Mahawar<span>.</span></div>
+    <div class="footer-copy">&copy; 2026 &middot; krishnamahawar.in &middot; NIT Raipur</div>
+  </div>
+</footer>
+
+<script>
+function copyUPI() {
+  var upi = document.getElementById('upiIdText').textContent;
+  var btn = document.getElementById('copyBtn');
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(upi).then(function() {
+      btn.textContent = 'Copied!';
+      btn.classList.add('copied');
+      setTimeout(function() {
+        btn.textContent = 'Copy';
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  } else {
+    var ta = document.createElement('textarea');
+    ta.value = upi;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(function() {
+      btn.textContent = 'Copy';
+      btn.classList.remove('copied');
+    }, 2000);
+  }
+}
+</script>
+</body>
+</html>
