@@ -1,0 +1,30 @@
+{
+  "expo": {
+    "name": "Krishna Mahawar",
+    "slug": "research-systems-platform",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#F8F8F8"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.krishnamahawar.platform"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#F8F8F8"
+      },
+      "package": "com.krishnamahawar.platform"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro"
+    }
+  }
+}
